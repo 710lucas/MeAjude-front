@@ -1,0 +1,26 @@
+<div *ngIf="campanhaService != null && campanhaService.getCampanha() != null">
+
+    <h1 style="text-align: center; font-size: 1.5rem;">Campanha: {{campanhaService.getCampanha()?.title}}</h1>
+    <!-- fazer if para usuario poder editar -->
+
+    <div class="doacao-container">
+        <button class="doacao-button"(click)="buttonPressed = !buttonPressed">Faça uma doação!</button>
+
+        <div *ngIf="buttonPressed">
+            <input type="number" placeholder="Valor para doar" class="inputField" [(ngModel)]="valorParaDoar">
+            <br>
+            <button class="send-button" (click)="doar()">Doar</button>
+        </div>
+        
+        <p>Dinheiro arrecadado R${{campanhaService.getCampanha()?.raisedMoney}}</p>
+        <p>Meta R${{campanhaService.getCampanha()?.goal}}</p>
+        <div class="barras">
+            <div class="barra-verde" id="barra" [style.width.%]="porcentagem * 100"></div>
+            <div class="barra-cinza"></div>
+        </div>
+
+    </div>
+
+
+
+</div>

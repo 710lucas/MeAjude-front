@@ -1,0 +1,14 @@
+<div class="campanha-card" *ngIf="campanha != undefined && campanha != null">
+
+    <button class="button" (click)="redirect()">Ver campanha</button>
+
+    <p class="titulo">{{campanha.title}}</p>
+    <p class="nome">👤{{user?.name}}</p>
+    <p class="descricao">{{campanha.description}}</p>
+    <p class="arreacadado">Dinheiro arrecadado: R$ {{campanha.raisedMoney}}</p>
+    <p class="meta">Meta a ser alcançada: R$ {{campanha.goal}}</p>
+    <div class="barras">
+        <div class="barra-verde" id="barra" [style.width.%]="porcentagem * 100"></div>
+        <div class="barra-cinza"></div>
+    </div>
+</div>
