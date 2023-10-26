@@ -4,7 +4,7 @@ import { User } from './User';
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService {
+export class UserService {
 
   private user? : User;
 
@@ -16,6 +16,15 @@ export class UserServiceService {
 
   setUser(user : User) : void{
     this.user = user;
+  }
+
+  getToken() : string | undefined{
+    return this.user?.token;
+  }
+
+  setToken(token : string){
+    if(this.user)
+      this.user.token = token
   }
 
 }
