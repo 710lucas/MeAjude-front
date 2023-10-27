@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DocumentDTO } from '../DocumentDTO';
 import { DataService } from '../data-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +13,7 @@ export class SignUpComponent {
 
   dataService  : DataService
 
-  constructor(dataService : DataService, private toast : ToastrService){
+  constructor(public router : Router, dataService : DataService, private toast : ToastrService){
     this.dataService = dataService
   }
 
