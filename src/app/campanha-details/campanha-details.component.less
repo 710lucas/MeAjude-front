@@ -8,16 +8,31 @@
     width: 100%;
     background-color: rgb(215, 215, 215);
 }
-.barra-verde{
-    background-color: gray;
-    color: green;
-    height: 10px;
+
+.doacao-button{
+    background-color: var(--third-color);
     border: none;
-    width: 100%;
+    border-radius: 10px;
+    width: 20rem;
+    height: 3rem;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    border: 2px solid white;
 }
 
-progress{
-    background-color: green;
+.doacao-button:hover{
+    border: solid 2px blue;
+}
+
+.donation-field{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.send-button{
+    background-color: #a6d9a0;
 }
 
 .doacao-container{
@@ -27,11 +42,13 @@ progress{
     transform: translate(-50%, 0);
     display:flex;
     flex-direction: column;
-    margin-top: 10%;
-    width: 30%;
-    height: 70%;
+    margin-top: 5rem;
+    width: 20rem;
+    height: 25rem;
     box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.2), -3px -3px 5px 0px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    background-color: white;
+    padding: 2rem;
 }
 
 .inputField{

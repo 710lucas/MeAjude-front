@@ -12,7 +12,7 @@ import {ToastrService} from "ngx-toastr"
 @Component({
   selector: 'app-campanha-details',
   templateUrl: './campanha-details.component.html',
-  styleUrls: ['./campanha-details.component.less']
+  styleUrls: ['./campanha-details.component.less', '../campanha-card/campanha-card.component.less']
 })
 export class CampanhaDetailsComponent {
 

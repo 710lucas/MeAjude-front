@@ -6,10 +6,10 @@
     <div class="doacao-container">
         <button class="doacao-button"(click)="buttonPressed = !buttonPressed">Faça uma doação!</button>
 
-        <div *ngIf="buttonPressed">
+        <div *ngIf="buttonPressed" class="donation-field">
             <input type="number" placeholder="Valor para doar" class="inputField" [(ngModel)]="valorParaDoar">
             <br>
-            <button class="send-button" (click)="doar()">Doar</button>
+            <button class="send-button doacao-button" (click)="doar()">Doar</button>
         </div>
         
         <p>Dinheiro arrecadado R${{campanhaService.getCampanha()?.raisedMoney}}</p>
