@@ -11,7 +11,7 @@ import { UserService } from '../user-service.service';
 })
 export class LoginComponent {
 
-  constructor(private router: Router, private dataService : DataService, private userService : UserService, private toaster : ToastrService) { }
+  constructor(public router: Router, private dataService : DataService, private userService : UserService, private toaster : ToastrService) { }
 
   email? : string;
   password? : string;
