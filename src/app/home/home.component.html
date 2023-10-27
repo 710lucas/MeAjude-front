@@ -3,7 +3,7 @@
     <h1 style="text-align: center; font-size: xx-large;"> Campanhas </h1>
     <button type="button" class="add-button" (click)="redirect()">Adicionar nova campanha</button>
 
-    <div style="display: flex; flex-wrap: wrap; margin-top: 10%; flex-direction: row; gap: 5%;">
+    <div class="card-container">
         <div *ngFor="let campanha of campanhas">
             <app-campanha-card [campanha]="campanha"></app-campanha-card>
         </div>
