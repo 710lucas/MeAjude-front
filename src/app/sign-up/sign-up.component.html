@@ -1,5 +1,5 @@
 <h1 class="header">
-    Me Ajude!
+    Me Ajude! 🤝
 </h1>
 
 <div class="login">
@@ -10,12 +10,13 @@
     <br>
     <input type="text" placeholder="name" class="inputField" id="name" [(ngModel)]="name">
     <br>
-    <input type="number" placeholder="phone" class="inputField" id="phone" [(ngModel)]="phone">
+    <div class="details">
+        <input type="number" placeholder="phone" class="inputField detail" id="phone" [(ngModel)]="phone">
+        <input type="text" placeholder="CPF" class="inputField detail" id="CPF" [(ngModel)]="document.content">
+    </div>
+    <p >Já tem uma conta? <a href="login">entrar</a></p>
     <br>
-    <input type="text" placeholder="CPF" class="inputField" id="CPF" [(ngModel)]="document.content">
-    <p style="transform: translate(-50%, 0); text-align: center;">Já tem uma conta? <a href="login">entrar</a></p>
-    <br>
-    <button type="button" class="button" (click)="signup()">login</button>
+    <button type="button" class="button" (click)="signup()">Criar conta</button>
 
 </div>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef } from '@angular/core';
 import { DocumentDTO } from '../DocumentDTO';
 import { DataService } from '../data-service.service';
 import { ToastrService } from 'ngx-toastr';
@@ -9,14 +9,18 @@ import { Router } from '@angular/router';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.less', '../login/login.component.less']
 })
-export class SignUpComponent {
+export class SignUpComponent implements AfterViewInit{
 
   dataService  : DataService
 
-  constructor(public router : Router, dataService : DataService, private toast : ToastrService){
+  constructor(public router : Router, private elementref : ElementRef, dataService : DataService, private toast : ToastrService){
     this.dataService = dataService
   }
 
+  ngAfterViewInit(): void {
+    this.elementref.nativeElement.ownerDocument.body.classList.add("page-container")
+    console.log(this.elementref.nativeElement.ownerDocument.body)
+  }
 
   email : string = ""
   password : string = ""
