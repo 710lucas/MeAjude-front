@@ -10,6 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { CampanhaCardComponent } from './campanha-card/campanha-card.component';
 import { CampanhaDetailsComponent } from './campanha-details/campanha-details.component';
 import { SignUpComponent } from './sign-up/sign-up.component'
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CampanhaCreatorComponent } from './campanha-creator/campanha-creator.component'
 
 @NgModule({
   declarations: [
@@ -18,13 +22,17 @@ import { SignUpComponent } from './sign-up/sign-up.component'
     HomeComponent,
     CampanhaCardComponent,
     CampanhaDetailsComponent,
-    SignUpComponent
+    SignUpComponent,
+    CampanhaCreatorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

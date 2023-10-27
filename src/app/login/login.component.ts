@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data-service.service';
-import { UserService as UserService } from '../user-service.service';
+import { ToastrService } from "ngx-toastr"
+import { UserService } from '../user-service.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { UserService as UserService } from '../user-service.service';
 })
 export class LoginComponent {
 
-  constructor(private router: Router, private dataService : DataService, private userService : UserService) { }
+  constructor(private router: Router, private dataService : DataService, private userService : UserService, private toaster : ToastrService) { }
 
   email? : string;
   password? : string;
@@ -22,7 +23,7 @@ export class LoginComponent {
 
 
     if(this.email != null && this.password != null){
-      (await this.dataService.postAuth(this.email, this.password)).subscribe(
+      this.dataService.login(this.email, this.password).subscribe(
         (response : any) =>{
           if(response.token){
             this.userService.setToken(response.token)
@@ -30,7 +31,12 @@ export class LoginComponent {
             if(this.email != undefined)
             localStorage.setItem("email", this.email)
             this.router.navigate(["/home"])
+            this.toaster.success("Login feito com sucesso")
           }
+        },
+        (error : any) => {
+            console.log(error)
+            this.toaster.success(error.error.errors[0])
         }
       )
     }

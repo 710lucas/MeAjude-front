@@ -4,10 +4,14 @@ import { catchError } from 'rxjs/operators'
 import { map } from 'rxjs/operators'
 import { UserService } from './user-service.service';
 import { Donation } from './donation';
+import { CreateUserDTO } from './CreateUserDTO';
+import { CreateCampanhaDTO } from './CreateCampanhaDTO';
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class DataService {
 
   constructor(private http : HttpClient, private userService : UserService) { }
@@ -15,6 +19,12 @@ export class DataService {
   api_url : string = "http://127.0.0.1:8081";
   httpOptions = {
     headers : new HttpHeaders({'Content-Type' : 'application/json'})
+  }
+
+  clearAuthorizationHeader(){
+    this.httpOptions = {
+      headers : new HttpHeaders({'Content-Type' : 'application/json'})
+    }
   }
 
 
@@ -29,6 +39,11 @@ export class DataService {
     return this.http.get(this.api_url+"/campaigns/"+id, this.httpOptions)
   }
 
+  createCampanha(campanha : CreateCampanhaDTO){
+    this.setAuthorizationHeader();
+    return this.http.post(this.api_url+"/campaigns", campanha, this.httpOptions)
+  }
+
   getCampanhas(){
     this.setAuthorizationHeader()
     return this.http.get(this.api_url+"/campaigns", this.httpOptions)
@@ -41,11 +56,12 @@ export class DataService {
 
   postDonation(donation : Donation){
     this.setAuthorizationHeader()
-    return  this.http.post(this.api_url+"/donation", donation, this.httpOptions)
+    return  this.http.post(this.api_url+"/donations", donation, this.httpOptions)
   }
 
-  async postAuth(email : string, password: string){
-    return this.http.post(this.api_url+"/auth",  {"email" : email, "password" : password},this.httpOptions)
+  login(email : string, password: string){
+    this.clearAuthorizationHeader()
+    return this.http.post(this.api_url+"/auth/login",  {"email" : email, "password" : password}, this.httpOptions)
   }
 
   getUsers(){
@@ -53,9 +69,8 @@ export class DataService {
     return this.http.get(this.api_url+"/users", this.httpOptions)
   }
 
-  createUser(){
-    this.setAuthorizationHeader()
-    return this.http.post(this.api_url+"/users", this.httpOptions)
+  createUser(data : CreateUserDTO){
+    return this.http.post(this.api_url+"/users", data ,this.httpOptions)
   }
 
 }

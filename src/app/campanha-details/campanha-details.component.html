@@ -15,8 +15,7 @@
         <p>Dinheiro arrecadado R${{campanhaService.getCampanha()?.raisedMoney}}</p>
         <p>Meta R${{campanhaService.getCampanha()?.goal}}</p>
         <div class="barras">
-            <div class="barra-verde" id="barra" [style.width.%]="porcentagem * 100"></div>
-            <div class="barra-cinza"></div>
+            <progress class="barra-verde" id="barra" [max]="100" [value]="porcentagem * 100"></progress>
         </div>
 
     </div>

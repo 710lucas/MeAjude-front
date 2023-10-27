@@ -1,0 +1,6 @@
+<h1>Criar nova campanha</h1>
+<input type="text"  placeholder="titulo" [(ngModel)]="campanha.title">
+<input type="text"  placeholder="descrição" [(ngModel)]="campanha.description">
+<input type="text"  placeholder="data no formato dia/mes/ano" [(ngModel)]="campanha.finalDate">
+<input type="number"  placeholder="meta" [(ngModel)]="campanha.goal">
+<button type="button" (click)="submit()">Enviar</button>

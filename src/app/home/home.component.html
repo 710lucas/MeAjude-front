@@ -1,6 +1,7 @@
 <div *ngIf="campanhas!=null" ng-init="init()">
 
     <h1 style="text-align: center; font-size: xx-large;"> Campanhas </h1>
+    <button type="button" class="add-button" (click)="redirect()">Adicionar nova campanha</button>
 
     <div style="display: flex; flex-wrap: wrap; margin-top: 10%; flex-direction: row; gap: 5%;">
         <div *ngFor="let campanha of campanhas">

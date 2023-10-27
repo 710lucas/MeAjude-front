@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Campanha } from '../Campanha';
 import { DataService } from '../data-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { DataService } from '../data-service.service';
 })
 export class HomeComponent {
 
-  constructor(private dataService : DataService){
+  constructor(private dataService : DataService, private router : Router){
 
     dataService.getCampanhas().subscribe(
       (result : any) =>{
@@ -19,6 +20,10 @@ export class HomeComponent {
       }
     )
 
+  }
+
+  redirect(){
+    this.router.navigate(["add-campanha"])
   }
 
   campanhas? : Campanha[]
