@@ -28,7 +28,7 @@ export function setCreatorId() : number{
 @Component({
   selector: 'app-campanha-creator',
   templateUrl: './campanha-creator.component.html',
-  styleUrls: ['./campanha-creator.component.css']
+  styleUrls: ['./campanha-creator.component.css', '../login/login.component.less']
 })
 
 
@@ -54,12 +54,12 @@ export class CampanhaCreatorComponent {
 
 
   campanha : CreateCampanhaDTO;
-  creatorId : number = 100
+  creatorId : number = -1
   jwt : any
 
   constructor(private router : Router, private dataService : DataService, private toaster : ToastrService){
     this.setCreatorId()
-    this.campanha = {title: "", description: "", goal: 0, finalDate: "", creatorId: this.creatorId  }
+    this.campanha = {title: "", description: "", goal: undefined, finalDate: "", creatorId: this.creatorId  }
   }
 
   submit(){
