@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: "campanhas/:id", component: CampanhaDetailsComponent},
   {path: "sign-up", component: SignUpComponent},
   {path: "add-campanha", component: CampanhaCreatorComponent},
-  {path: "", component: HomeComponent}
+  {path: "", component: LoginComponent}
 ];
 
 @NgModule({

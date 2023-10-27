@@ -6,6 +6,7 @@ import { UserService } from './user-service.service';
 import { Donation } from './donation';
 import { CreateUserDTO } from './CreateUserDTO';
 import { CreateCampanhaDTO } from './CreateCampanhaDTO';
+import { enviroment } from 'src/environment/enviroment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class DataService {
 
   constructor(private http : HttpClient, private userService : UserService) { }
 
-  api_url : string = "http://127.0.0.1:8081";
+  api_url : string = enviroment.API_URL;
   httpOptions = {
     headers : new HttpHeaders({'Content-Type' : 'application/json'})
   }
