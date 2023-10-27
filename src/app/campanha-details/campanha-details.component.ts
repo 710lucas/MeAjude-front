@@ -29,11 +29,7 @@ export class CampanhaDetailsComponent {
 
   constructor(campanhaService : CampanhaService, private route : ActivatedRoute, private dataService : DataService, private cdr : ChangeDetectorRef, private user: UserService, private toaster : ToastrService){
     this.campanhaService = campanhaService;
-    if(this.campanhaService.getCampanha() == undefined)this.loadByUrl()
-    else{
-      this.campanha = campanhaService.getCampanha()
-      this.porcentagem = this.campanha? this.campanha?.raisedMoney/this.campanha?.goal : 0
-    }
+    this.loadByUrl()
   }
 
   doar(){
@@ -43,6 +39,7 @@ export class CampanhaDetailsComponent {
         this.toaster.success("Doação feita com sucesso")
         this.campanha = this.campanhaService?.getCampanha()
         this.loadPorcentagem()
+        this.loadByUrl()
       },
       (error) =>{
         this.toaster.error("Houve um erro ao fazer a doação")

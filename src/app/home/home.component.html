@@ -1,9 +1,9 @@
-<div *ngIf="campanhas!=null" ng-init="init()">
+<div>
 
     <h1 style="text-align: center; font-size: xx-large;"> Campanhas </h1>
     <button type="button" class="add-button" (click)="redirect()">Adicionar nova campanha</button>
 
-    <div class="card-container">
+    <div class="card-container" *ngIf="campanhas!=null" ng-init="init()">
         <div *ngFor="let campanha of campanhas">
             <app-campanha-card [campanha]="campanha"></app-campanha-card>
         </div>
